@@ -11,12 +11,6 @@ inputs:
   file:
     description: "Path to the Dockerfile"
     required: true
-  username:
-    description: 'Username used to log against the Docker registry'
-    required: false
-  password:
-    description: 'Password or personal access token used to log against the Docker registry'
-    required: false
   cache-from:
     description: "List of external cache sources for buildx (e.g., user/app:cache, type=local,src=path/to/dir)"
     required: false
@@ -33,6 +27,9 @@ inputs:
   target:
     description: "Sets the target stage to build"
     required: false
+  role-to-assume:
+    description: "The Amazon Resource Name (ARN) of the role to assume"
+    required: true
 
 runs:
   using: "composite"

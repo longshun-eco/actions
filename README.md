@@ -17,6 +17,7 @@ This action builds a Docker image and pushes it to Amazon ECR.
       org.opencontainers.image.created=${{ steps.prep.outputs.created }}
       org.opencontainers.image.source=${{ github.repositoryUrl }}
     file: './Dockerfile'
+    role-to-assume: 'arn:aws:iam::123456789012:role/my-role'
     
     # Optional
     cache-from: 'type=local,src=path/to/cache'
@@ -31,6 +32,7 @@ This action builds a Docker image and pushes it to Amazon ECR.
 | `tags` | Yes | List of tags for the Docker image | |
 | `labels` | Yes | List of metadata labels for the image | |
 | `file` | Yes | Path to the Dockerfile | |
+| `role-to-assume` | Yes | The Amazon Resource Name (ARN) of the role to assume | |
 | `cache-from` | No | List of external cache sources for buildx | |
 | `platforms` | No | List of target platforms for build | |
 | `context` | No | Build context path | |
